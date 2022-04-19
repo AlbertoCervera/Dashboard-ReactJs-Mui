@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
+import Navbar from "../components/Navegation"
 
 // sections
 import {
@@ -23,7 +24,8 @@ export default function DashboardApp() {
   const theme = useTheme();
 
   return (
-    <Page title="Dashboard">
+    <Page title="Rivia">
+      <Navbar/>
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hola, Bienvenido al Panel de Rivia.
