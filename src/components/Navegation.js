@@ -167,96 +167,98 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar>
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            background: "white",
-          }}
-        >
-          <img alt="user img" className="logo" src={`${process.env.PUBLIC_URL}/static/images/logo.png`} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="div"
+    <div className="navegation-container">
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar>
+          <Toolbar
             sx={{
-              display: { xs: "block", sm: "block" },
-              color: "success.main",
-              fontWeight: "bolder",
+              display: "flex",
+              justifyContent: "center",
+              background: "white",
             }}
           >
-		  	
-            RIVIA
-			
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Search
-            sx={{ width: "170px", color: "black", border: "1px solid black" }}
-          >
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Buscar..."
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
+            <img alt="user img" className="logo" src={`${process.env.PUBLIC_URL}/static/images/logo.png`} />
+            <Typography
+              variant="h5"
+              noWrap
+              component="div"
+              sx={{
+                display: { xs: "block", sm: "block" },
+                color: "rgb(8, 90, 0)",
+                fontWeight: "bolder",
+              }}
+            >
+          
+              RIVIA
+        
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <Search
+              sx={{ width: "170px", color: "black", border: "1px solid black" }}
+            >
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Buscar..."
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="primary"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon sx={{ fontSize: "30px" }} />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="primary"
-            >
-              <Badge badgeContent={11} color="error">
-                <NotificationsIcon sx={{ fontSize: "30px" }} />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="primary"
-            >
-              {/* <AccountCircle sx={{fontSize:"40px"}} /> */}
-              <div className="box-img" style={{transform: "scale(0.7)"}}>
-                <img alt="user img" className="user-img" src={`${process.env.PUBLIC_URL}/static/images/cara.png`} />
-              </div>
-            </IconButton>
-          </Box>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="primary"
+              >
+                <Badge badgeContent={4} color="error">
+                  <MailIcon sx={{ fontSize: "30px" }} />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="primary"
+              >
+                <Badge badgeContent={11} color="error">
+                  <NotificationsIcon sx={{ fontSize: "30px" }} />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="primary"
+              >
+                {/* <AccountCircle sx={{fontSize:"40px"}} /> */}
+                <div className="box-img" style={{transform: "scale(0.7)"}}>
+                  <img alt="user img" className="user-img" src={`${process.env.PUBLIC_URL}/static/images/cara.png`} />
+                </div>
+              </IconButton>
+            </Box>
 
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
 
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+    </div>
   );
 }

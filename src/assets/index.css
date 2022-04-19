@@ -37,10 +37,12 @@
 
 .logo{
   width: 30px;
+  padding: 5px;
 }
 
 .navegation-container{
-  height: 8vh;
+  height: 12vh;
+  
 }
 
 .main-container{
