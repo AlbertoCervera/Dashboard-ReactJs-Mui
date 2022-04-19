@@ -168,8 +168,8 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className="navegation-container">
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar>
+      <Box sx={{ flexGrow: 1,background:"white" }}>
+        <AppBar sx={{background:"white"}}>
           <Toolbar
             sx={{
               display: "flex",
