@@ -1,6 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
-import DashboardLayout from './layouts/dashboard';
+
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
@@ -13,7 +13,6 @@ export default function Router() {
   return useRoutes([
     {
       path: '/dashboard',
-      element: <DashboardLayout />,
       children: [{ path: 'app', element: <DashboardApp /> }],
     },
     {
