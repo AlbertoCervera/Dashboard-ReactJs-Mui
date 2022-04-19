@@ -12,14 +12,13 @@ import DashboardApp from './pages/DashboardApp';
 export default function Router() {
   return useRoutes([
     {
-      path: '/dashboard',
-      children: [{ path: 'app', element: <DashboardApp /> }],
+      path: '/',element:<DashboardApp/>
+      
     },
     {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard/app" /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
         { path: '404', element: <NotFound /> },
