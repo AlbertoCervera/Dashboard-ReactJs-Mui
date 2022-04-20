@@ -34,7 +34,7 @@ export default function AppTasks({ title, subheader, list, ...other }) {
       <FormikProvider value={formik}>
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
           {list.map((task) => (
-            <TaskItem key={task.id} task={task} checked={values.checked.includes(task.id)} formik={formik} />
+            <TaskItem key={task.id} task={task} checked={values.checked.includes(task.id)} formik={formik}/>
           ))}
         </Form>
       </FormikProvider>

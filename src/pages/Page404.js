@@ -21,26 +21,25 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function Page404() {
   return (
-    <Page title="404 Page Not Found">
+    <Page title="404 Página no encontrada">
       <Container>
         <ContentStyle sx={{ textAlign: 'center', alignItems: 'center' }}>
           <Typography variant="h3" paragraph>
-            Sorry, page not found!
+            Lo sentimos, Rivia no ha podido encontrar esta página!
           </Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL? Be
-            sure to check your spelling.
+            Código de error 404, no se ha podido encontrar la página, porfavor compruebe la URL.
           </Typography>
 
           <Box
             component="img"
-            src="/static/illustrations/illustration_404.svg"
+            src="/static/images/logo.png"
             sx={{ height: 260, mx: 'auto', my: { xs: 5, sm: 10 } }}
           />
 
           <Button to="/" size="large" variant="contained" component={RouterLink}>
-            Go to Home
+            Volver
           </Button>
         </ContentStyle>
       </Container>

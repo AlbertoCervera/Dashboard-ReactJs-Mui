@@ -69,9 +69,9 @@ export default function Login() {
 
           {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
-              Don’t have an account? {''}
+              ¿No tienes cuenta? {''}
               <Link variant="subtitle2" component={RouterLink} to="/register">
-                Get started
+                Registrate
               </Link>
             </Typography>
           )}
@@ -80,7 +80,7 @@ export default function Login() {
         {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Hi, Welcome Back
+              ¡Bienvenido!
             </Typography>
             <img src="/static/illustrations/illustration_login.png" alt="login" />
           </SectionStyle>

@@ -1,3 +1,5 @@
+import React, {useState,useEffect} from "react"
+import axios from "axios"
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -20,9 +22,41 @@ import {
 
 // ----------------------------------------------------------------------
 
+
+
 export default function DashboardApp() {
+
+  const [chips,guardarChips] = useState(0)
+  const [pasaporte,guardarPasaportes] = useState(0)
+
+  useEffect(()=>{
+    getChips()
+  },[chips])
+
+  // Pasaportes
+
+  useEffect(()=>{
+    getPasaportes()
+  },[pasaporte])
+  
+  
+  const getChips = async () => {
+    const consulta = await axios.get("http://172.26.0.229:8081/animales/chips") 
+    guardarChips(await consulta.data[0].chips)
+  }
+
+  const getPasaportes = async () => {
+    const consulta = await axios.get("http://172.26.0.229:8081/animales/pasaportes") 
+    guardarPasaportes(await consulta.data[0].pasaportes)
+  }
+
+
+
+
+  
   const theme = useTheme();
 
+  // -------->HTML
   return (
     <Page title="Rivia">
       <Navbar/>
@@ -33,11 +67,11 @@ export default function DashboardApp() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Chips | Inventario" total={714000} icon={'gg:smartphone-chip'} />
+            <AppWidgetSummary title="Chips | Inventario" total={chips} icon={'gg:smartphone-chip'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pasaportes | Documentos" total={1352831} color="info" icon={'fontisto:passport-alt'} />
+            <AppWidgetSummary title="Pasaportes | Documentos" total={pasaporte} color="info" icon={'fontisto:passport-alt'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -140,8 +174,8 @@ export default function DashboardApp() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
+              title="Últimas Noticias"
+              list={[...Array(4)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
                 description: faker.name.jobTitle(),
@@ -156,46 +190,13 @@ export default function DashboardApp() {
               title="Actividad Reciente"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
-                title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
-                ][index],
+                title: faker.company.catchPhrase()
+                ,
                 type: `order${index + 1}`,
                 time: faker.date.past(),
               }))}
             />
           </Grid>
-
-          {/* <Grid item xs={12} md={6} lg={4}>
-            <AppTrafficBySite
-              title="Traffic by Site"
-              list={[
-                {
-                  name: 'FaceBook',
-                  value: 323234,
-                  icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} height={32} />,
-                },
-                {
-                  name: 'Google',
-                  value: 341212,
-                  icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} height={32} />,
-                },
-                {
-                  name: 'Linkedin',
-                  value: 411213,
-                  icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} height={32} />,
-                },
-                {
-                  name: 'Twitter',
-                  value: 443232,
-                  icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} height={32} />,
-                },
-              ]}
-            />
-          </Grid> */}
 
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
@@ -207,8 +208,10 @@ export default function DashboardApp() {
                 { id: '4', label: 'Scoping & Estimations' },
                 { id: '5', label: 'Sprint Showcase' },
               ]}
+              
             />
           </Grid>
+          
         </Grid>
       </Container>
     </Page>

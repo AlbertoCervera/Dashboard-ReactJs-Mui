@@ -41,6 +41,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -132,7 +133,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton size="large" aria-label="show 4 new mails" color="primary">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
@@ -143,7 +144,7 @@ export default function PrimarySearchAppBar() {
         <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit"
+          color="primary"
         >
           <Badge badgeContent={17} color="error">
             <NotificationsIcon />
@@ -157,7 +158,7 @@ export default function PrimarySearchAppBar() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
+          color="primary"
         >
           <AccountCircle />
         </IconButton>
@@ -184,7 +185,7 @@ export default function PrimarySearchAppBar() {
               component="div"
               sx={{
                 display: { xs: "block", sm: "block" },
-                color: "rgb(8, 90, 0)",
+                color: "#1c6159",
                 fontWeight: "bolder",
               }}
             >
@@ -248,7 +249,7 @@ export default function PrimarySearchAppBar() {
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                color="inherit"
+                color="primary"
               >
                 <MoreIcon />
               </IconButton>

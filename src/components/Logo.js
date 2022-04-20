@@ -22,5 +22,5 @@ export default function Logo({ disabledLink = false, sx }) {
     return <>{logo}</>;
   }
 
-  return <RouterLink to="/">{logo}</RouterLink>;
+  return <RouterLink style={{ textDecoration: 'none',color:"#1c6159" }} to="/">{logo}</RouterLink>;
 }

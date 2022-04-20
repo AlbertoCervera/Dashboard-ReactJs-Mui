@@ -16,6 +16,7 @@ AppOrderTimeline.propTypes = {
 export default function AppOrderTimeline({ title, subheader, list, ...other }) {
   return (
     <Card {...other}>
+      
       <CardHeader title={title} subheader={subheader} />
 
       <CardContent
@@ -27,6 +28,7 @@ export default function AppOrderTimeline({ title, subheader, list, ...other }) {
       >
         <Timeline>
           {list.map((item, index) => (
+            
             <OrderItem key={item.id} item={item} isLast={index === list.length - 1} />
           ))}
         </Timeline>
