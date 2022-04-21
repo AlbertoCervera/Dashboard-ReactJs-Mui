@@ -27,16 +27,17 @@ import {
 
 export default function DashboardApp() {
 
-  const TimeFetch = 1000
+  const TimeFetch = 500
 
   const [chips,guardarChips] = useState(0)
   const [pasaportes,guardarPasaportes] = useState(0)
   const [vacunas,guardarVacunas] = useState(0)
+  const [users,guardarUsers] = useState(0)
 
   useEffect(()=>getChips(),[chips])
   useEffect(()=>getPasaportes(),[pasaportes])
   useEffect(()=>getVacunas(),[vacunas])
-
+  useEffect(()=>getUsers(),[users])
 
 // Fetch Data Api Node js --> Pooling
   const getChips =async () => {
@@ -60,6 +61,12 @@ export default function DashboardApp() {
     },TimeFetch)
   }
 
+  const getUsers =async () => {
+    setTimeout(async()=> {
+      const consultaUsers = await clientAxios.get("/usuarios/cantidad") 
+      guardarUsers(consultaUsers)
+    },TimeFetch)
+  }
 
   
   const theme = useTheme();
@@ -69,11 +76,14 @@ export default function DashboardApp() {
     <Page title="Rivia">
       <Navbar/>
       <Container maxWidth="xl">
+        {/* Welcome */}
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hola, Bienvenido al Panel de Rivia.
         </Typography>
 
         <Grid container spacing={3}>
+
+          {/* Cards */}
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Chips | Inventario" total={chips.data} icon={'gg:smartphone-chip'} />
           </Grid>
@@ -87,8 +97,9 @@ export default function DashboardApp() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Reportes" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Usuarios" total={users.data} color="error" icon={'fa-regular:user'} />
           </Grid>
+          {/* Fin Cards */}
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
@@ -184,11 +195,11 @@ export default function DashboardApp() {
             <AppNewsUpdate
               title="Últimas Noticias"
               list={[...Array(4)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
+                id: "1",
+                title: "faker.name.jobTitle()",
+                description: "faker.name.jobTitle()",
                 image: `/static/mock-images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(),
+                postedAt: `2022-04-01T00:00:00.000Z`,
               }))}
             />
           </Grid>
@@ -197,11 +208,10 @@ export default function DashboardApp() {
             <AppOrderTimeline
               title="Actividad Reciente"
               list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.company.catchPhrase()
-                ,
+                id: "1",
+                title: "faker.company.catchPhrase()",
                 type: `order${index + 1}`,
-                time: faker.date.past(),
+                time: `2022-04-01T00:00:00.000Z`,
               }))}
             />
           </Grid>
