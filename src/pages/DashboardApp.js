@@ -9,7 +9,6 @@ import Navbar from "../components/Navegation"
 
 // sections
 import {
-  AppTasks,
   AppNewsUpdate,
   AppOrderTimeline,
   AppCurrentVisits,
@@ -192,7 +191,7 @@ export default function DashboardApp() {
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="Últimas Noticias"
-              list={[...Array(4)].map((_, index) => ({
+              list={[...Array(5)].map((_, index) => ({
                 id: "1",
                 title: "faker.name.jobTitle()",
                 description: "faker.name.jobTitle()",
@@ -214,19 +213,6 @@ export default function DashboardApp() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
-            <AppTasks
-              title="Tareas"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
-              ]}
-              
-            />
-          </Grid>
           
         </Grid>
       </Container>
