@@ -9,7 +9,7 @@ import Page from '../components/Page';
 import Logo from '../components/Logo';
 // sections
 import { LoginForm } from '../sections/auth/login';
-import AuthSocial from '../sections/auth/AuthSocial';
+
 
 // ----------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ export default function Login() {
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
               ¿No tienes cuenta? {''}
               <Link variant="subtitle2" component={RouterLink} to="/register">
-                Registrate
+                Registrarse
               </Link>
             </Typography>
           )}
@@ -80,7 +80,7 @@ export default function Login() {
         {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              ¡Bienvenido!
+              ¡Bienvenid@ al Inicio de Sesión de RIVIA.!
             </Typography>
             <img src="/static/illustrations/illustration_login.png" alt="login" />
           </SectionStyle>
@@ -89,20 +89,18 @@ export default function Login() {
         <Container maxWidth="sm">
           <ContentStyle>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+              Iniciar Sesión en RIVIA
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Enter your details below.</Typography>
-
-            <AuthSocial />
+            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Introduzca sus datos.</Typography>
 
             <LoginForm />
 
             {!smUp && (
               <Typography variant="body2" align="center" sx={{ mt: 3 }}>
-                Don’t have an account?{' '}
+                ¿No tienes cuenta?{' '}
                 <Link variant="subtitle2" component={RouterLink} to="/register">
-                  Get started
+                  Empezar
                 </Link>
               </Typography>
             )}

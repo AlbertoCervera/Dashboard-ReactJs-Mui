@@ -9,7 +9,7 @@ import Page from '../components/Page';
 import Logo from '../components/Logo';
 // sections
 import { RegisterForm } from '../sections/auth/register';
-import AuthSocial from '../sections/auth/AuthSocial';
+
 
 // ----------------------------------------------------------------------
 
@@ -68,9 +68,9 @@ export default function Register() {
           <Logo />
           {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
-              Already have an account? {''}
-              <Link variant="subtitle2" component={RouterLink} to="/login">
-                Login
+              Ya tienes una cuenta? {''}
+              <Link style={{textDecoration:"none"}} variant="subtitle2" component={RouterLink} to="/login">
+                Iniciar Sesión
               </Link>
             </Typography>
           )}
@@ -79,7 +79,7 @@ export default function Register() {
         {mdUp && (
           <SectionStyle>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Manage the job more effectively with Minimal
+              Bienvenid@ al portal de registro de RIVIA.  
             </Typography>
             <img alt="register" src="/static/illustrations/illustration_register.png" />
           </SectionStyle>
@@ -88,23 +88,21 @@ export default function Register() {
         <Container>
           <ContentStyle>
             <Typography variant="h4" gutterBottom>
-              Get started absolutely free.
+              Registrarse en RIVIA.
             </Typography>
 
-            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Free forever. No credit card needed.</Typography>
-
-            <AuthSocial />
+            <Typography sx={{ color: 'text.secondary', mb: 5 }}>Solo tardará unos segundos en registrarse.</Typography>
 
             <RegisterForm />
 
             <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-              By registering, I agree to Minimal&nbsp;
+              Al registrarme en Rivia, acepto los&nbsp;
               <Link underline="always" color="text.primary" href="#">
-                Terms of Service
+                Terminos de uso
               </Link>
-              {''}and{''}
+              {''} y {''}
               <Link underline="always" color="text.primary" href="#">
-                Privacy Policy
+                Políticas de Privacidad
               </Link>
               .
             </Typography>
