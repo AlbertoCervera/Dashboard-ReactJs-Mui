@@ -1,9 +1,10 @@
 import React, {useState,useEffect} from "react"
-import axios from "axios"
+
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
+import clientAxios from "../config/axios";
 // components
 import Page from '../components/Page';
 import Navbar from "../components/Navegation"
@@ -27,28 +28,36 @@ import {
 export default function DashboardApp() {
 
   const [chips,guardarChips] = useState(0)
-  const [pasaporte,guardarPasaportes] = useState(0)
+  
+  
+//  const [numChips,setNumChips] = useState(0)
 
   useEffect(()=>{
     getChips()
+    console.log(chips)
+    
   },[chips])
 
   // Pasaportes
 
-  useEffect(()=>{
-    getPasaportes()
-  },[pasaporte])
+  // useEffect(()=>{
+  //   getPasaportes()
+  // },[pasaportes])
   
   
-  const getChips = async () => {
-    const consulta = await axios.get("http://172.26.0.229:8081/animales/chips") 
-    guardarChips(await consulta.data[0].chips)
+  const getChips =async () => {
+    setTimeout(async()=> {
+      const consultaChips = await clientAxios.get("/animales/chips") 
+      guardarChips(consultaChips)
+    },4000)
+   
   }
 
-  const getPasaportes = async () => {
-    const consulta = await axios.get("http://172.26.0.229:8081/animales/pasaportes") 
-    guardarPasaportes(await consulta.data[0].pasaportes)
-  }
+  // const getPasaportes = async () => {
+  //   const consultaPas = await axios.get("http://localhost:8008/animales/pasaportes") 
+  //   const resultadoPas = await consultaPas.data
+  //   guardarPasaportes(resultadoPas)
+  // }
 
 
 
@@ -67,15 +76,15 @@ export default function DashboardApp() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Chips | Inventario" total={chips} icon={'gg:smartphone-chip'} />
+            <AppWidgetSummary title="Chips | Inventario" total={chips.data} icon={'gg:smartphone-chip'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pasaportes | Documentos" total={pasaporte} color="info" icon={'fontisto:passport-alt'} />
+            <AppWidgetSummary title="Pasaportes | Documentos" total={0} color="info" icon={'fontisto:passport-alt'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Sellos | Vacunación" total={1723315} color="warning" icon={'bi:credit-card-2-front-fill'} />
+            <AppWidgetSummary title="Sellos | Vacunación" total={17315} color="warning" icon={'bi:credit-card-2-front-fill'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
