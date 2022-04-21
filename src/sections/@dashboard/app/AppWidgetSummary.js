@@ -6,7 +6,6 @@ import { Card, Typography } from '@mui/material';
 import { fShortenNumber } from '../../../utils/formatNumber';
 // components
 import Iconify from '../../../components/Iconify';
-// Axios
 
 // ----------------------------------------------------------------------
 
@@ -32,6 +31,7 @@ AppWidgetSummary.propTypes = {
 };
 
 export default function AppWidgetSummary({ title, total, icon, color = 'primary', sx, ...other }) {
+
   return (
     <Card
       sx={{
@@ -57,7 +57,8 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
         <Iconify icon={icon} width={50} height={50} />
       </IconWrapperStyle>
 
-      <Typography variant="h3">{fShortenNumber(total)}</Typography>
+      {/* <Typography variant="h3">{fShortenNumber(total) }</Typography> */}
+      <Typography variant="h3">{total? fShortenNumber(total) : "Buscando..."}</Typography>
 
       <Typography variant="subtitle2" sx={{ opacity: 0.72 }}>
         {title}

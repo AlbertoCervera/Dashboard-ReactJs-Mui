@@ -27,39 +27,38 @@ import {
 
 export default function DashboardApp() {
 
+  const TimeFetch = 1000
+
   const [chips,guardarChips] = useState(0)
-  
-  
-//  const [numChips,setNumChips] = useState(0)
+  const [pasaportes,guardarPasaportes] = useState(0)
+  const [vacunas,guardarVacunas] = useState(0)
 
-  useEffect(()=>{
-    getChips()
-    console.log(chips)
-    
-  },[chips])
+  useEffect(()=>getChips(),[chips])
+  useEffect(()=>getPasaportes(),[pasaportes])
+  useEffect(()=>getVacunas(),[vacunas])
 
-  // Pasaportes
 
-  // useEffect(()=>{
-  //   getPasaportes()
-  // },[pasaportes])
-  
-  
+// Fetch Data Api Node js --> Pooling
   const getChips =async () => {
     setTimeout(async()=> {
       const consultaChips = await clientAxios.get("/animales/chips") 
       guardarChips(consultaChips)
-    },4000)
-   
+    },TimeFetch)
   }
 
-  // const getPasaportes = async () => {
-  //   const consultaPas = await axios.get("http://localhost:8008/animales/pasaportes") 
-  //   const resultadoPas = await consultaPas.data
-  //   guardarPasaportes(resultadoPas)
-  // }
+  const getPasaportes =async () => {
+    setTimeout(async()=> {
+      const consultaPasaportes = await clientAxios.get("/animales/pasaportes") 
+      guardarPasaportes(consultaPasaportes)
+    },TimeFetch)
+  }
 
-
+  const getVacunas =async () => {
+    setTimeout(async()=> {
+      const consultaVacunas = await clientAxios.get("/animales/vacunas") 
+      guardarVacunas(consultaVacunas)
+    },TimeFetch)
+  }
 
 
   
@@ -80,11 +79,11 @@ export default function DashboardApp() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pasaportes | Documentos" total={0} color="info" icon={'fontisto:passport-alt'} />
+            <AppWidgetSummary title="Pasaportes | Documentos" total={pasaportes.data} color="info" icon={'fontisto:passport-alt'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Sellos | Vacunación" total={17315} color="warning" icon={'bi:credit-card-2-front-fill'} />
+            <AppWidgetSummary title="Sellos | Vacunación" total={vacunas.data} color="warning" icon={'bi:credit-card-2-front-fill'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
