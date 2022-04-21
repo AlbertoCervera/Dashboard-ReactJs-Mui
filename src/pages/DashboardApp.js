@@ -1,6 +1,4 @@
 import React, {useState,useEffect} from "react"
-
-import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';

@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const clientAxios = axios.create({
-    baseURL: "http://localhost:8008",
+    baseURL: "http://172.26.0.229:8008",
     timeout: 40000,
     
 }

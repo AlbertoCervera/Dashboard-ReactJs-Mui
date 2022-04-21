@@ -1,7 +1,4 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-// layouts
-
-import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
@@ -17,7 +14,6 @@ export default function Router() {
     },
     {
       path: '/',
-      element: <LogoOnlyLayout />,
       children: [
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
